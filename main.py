@@ -3,10 +3,10 @@ import _turbosatorinetworkinterface as tsi
 import time
 from pylsl import StreamInfo, StreamOutlet
 
-# Note: Needs expyriment to be pip installed.
-
 # Scripts looks for a Turbo-Satori connection, and will send rest and condition triggers to Turbo-Satori.
 # Each new task period is its own condition (and therefore a new trigger).
+
+# Note: Needs expyriment and pylsl to be pip installed.
 
 print('Starting up script...')
 print('Developed by Danielle Evenblij, 2023')
@@ -56,7 +56,7 @@ class State:  # States of the experiment
     TASK = 'Task'
 
 
-    
+
 # =============== START SCRIPT =================
 
 # Look for a connection to turbo-satori
@@ -67,7 +67,7 @@ try:
 except:
     # None found? Let the user know
     TSIconnectionFound = False
-    print("Turbo satori connection not found.")
+    print("============ WARNING: Turbo satori connection not found. ======================")
 
 # Start with the baseline state
 current_state = State.BASELINE
